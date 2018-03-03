@@ -1,17 +1,17 @@
 package com.babysitting.subscription.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.github.jasminb.jsonapi.annotations.Id;
-import com.github.jasminb.jsonapi.annotations.Type;
 import com.google.common.base.Objects;
 
-import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Type("User")
-@JsonInclude(NON_NULL)
-public class UserDto {
+@Entity
+public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String firstName;
@@ -36,7 +36,7 @@ public class UserDto {
         return id;
     }
 
-    public UserDto setId(Long id) {
+    public User setId(Long id) {
         this.id = id;
         return this;
     }
@@ -45,7 +45,7 @@ public class UserDto {
         return firstName;
     }
 
-    public UserDto setFirstName(String firstName) {
+    public User setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
@@ -54,7 +54,7 @@ public class UserDto {
         return lastName;
     }
 
-    public UserDto setLastName(String lastName) {
+    public User setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
@@ -63,7 +63,7 @@ public class UserDto {
         return address;
     }
 
-    public UserDto setAddress(String address) {
+    public User setAddress(String address) {
         this.address = address;
         return this;
     }
@@ -72,7 +72,7 @@ public class UserDto {
         return zipCode;
     }
 
-    public UserDto setZipCode(String zipCode) {
+    public User setZipCode(String zipCode) {
         this.zipCode = zipCode;
         return this;
     }
@@ -81,7 +81,7 @@ public class UserDto {
         return city;
     }
 
-    public UserDto setCity(String city) {
+    public User setCity(String city) {
         this.city = city;
         return this;
     }
@@ -90,7 +90,7 @@ public class UserDto {
         return email;
     }
 
-    public UserDto setEmail(String email) {
+    public User setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -99,7 +99,7 @@ public class UserDto {
         return country;
     }
 
-    public UserDto setCountry(String country) {
+    public User setCountry(String country) {
         this.country = country;
         return this;
     }
@@ -108,7 +108,7 @@ public class UserDto {
         return password;
     }
 
-    public UserDto setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -117,7 +117,7 @@ public class UserDto {
         return phoneNumber;
     }
 
-    public UserDto setPhoneNumber(String phoneNumber) {
+    public User setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
         return this;
     }
@@ -126,17 +126,17 @@ public class UserDto {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserDto userDto = (UserDto) o;
-        return Objects.equal(id, userDto.id) &&
-                Objects.equal(firstName, userDto.firstName) &&
-                Objects.equal(lastName, userDto.lastName) &&
-                Objects.equal(address, userDto.address) &&
-                Objects.equal(zipCode, userDto.zipCode) &&
-                Objects.equal(city, userDto.city) &&
-                Objects.equal(email, userDto.email) &&
-                Objects.equal(country, userDto.country) &&
-                Objects.equal(password, userDto.password) &&
-                Objects.equal(phoneNumber, userDto.phoneNumber);
+        User user = (User) o;
+        return Objects.equal(id, user.id) &&
+                Objects.equal(firstName, user.firstName) &&
+                Objects.equal(lastName, user.lastName) &&
+                Objects.equal(address, user.address) &&
+                Objects.equal(zipCode, user.zipCode) &&
+                Objects.equal(city, user.city) &&
+                Objects.equal(email, user.email) &&
+                Objects.equal(country, user.country) &&
+                Objects.equal(password, user.password) &&
+                Objects.equal(phoneNumber, user.phoneNumber);
     }
 
     @Override
@@ -146,7 +146,7 @@ public class UserDto {
 
     @Override
     public String toString() {
-        return "UserDto{" +
+        return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

@@ -1,8 +1,8 @@
 package com.babysitting.subscription;
 
 import com.babysitting.subscription.core.HashCalculator;
-import com.babysitting.subscription.model.UserDto;
 import com.babysitting.subscription.core.UserServiceImpl;
+import com.babysitting.subscription.model.UserDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -19,7 +19,7 @@ public class UserServiceTest {
     private UserServiceImpl userService;
 
     @Test
-    public void subscribe_a_new_user_succeeds() throws NoSuchAlgorithmException {
+    public void should_subscribe_a_new_user() throws NoSuchAlgorithmException {
         UserDto user = new UserDto()
                 .setFirstName("Alice")
                 .setLastName("Scott")
