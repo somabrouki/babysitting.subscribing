@@ -3,7 +3,8 @@ package com.babysitting.subscription.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.jasminb.jsonapi.annotations.Id;
 import com.github.jasminb.jsonapi.annotations.Type;
-import com.google.common.base.Objects;
+
+import java.util.Objects;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
@@ -127,21 +128,21 @@ public class UserDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserDto userDto = (UserDto) o;
-        return Objects.equal(id, userDto.id) &&
-                Objects.equal(firstName, userDto.firstName) &&
-                Objects.equal(lastName, userDto.lastName) &&
-                Objects.equal(address, userDto.address) &&
-                Objects.equal(zipCode, userDto.zipCode) &&
-                Objects.equal(city, userDto.city) &&
-                Objects.equal(email, userDto.email) &&
-                Objects.equal(country, userDto.country) &&
-                Objects.equal(password, userDto.password) &&
-                Objects.equal(phoneNumber, userDto.phoneNumber);
+        return Objects.equals(id, userDto.id) &&
+                Objects.equals(firstName, userDto.firstName) &&
+                Objects.equals(lastName, userDto.lastName) &&
+                Objects.equals(address, userDto.address) &&
+                Objects.equals(zipCode, userDto.zipCode) &&
+                Objects.equals(city, userDto.city) &&
+                Objects.equals(email, userDto.email) &&
+                Objects.equals(country, userDto.country) &&
+                Objects.equals(password, userDto.password) &&
+                Objects.equals(phoneNumber, userDto.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, firstName, lastName, address, zipCode, city, email, country, password, phoneNumber);
+        return Objects.hash(id, firstName, lastName, address, zipCode, city, email, country, password, phoneNumber);
     }
 
     @Override

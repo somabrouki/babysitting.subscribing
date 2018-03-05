@@ -3,7 +3,6 @@ package com.babysitting.subscription;
 import com.babysitting.subscription.core.UserService;
 import com.babysitting.subscription.model.UserDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +31,6 @@ public class SubscribingController {
          return new ResponseEntity<>(userCreation.createUser(user, isFederation, functionalId), HttpStatus.CREATED);
      }
  */
-    @ApiOperation(value = "Create new user", notes = "Create new user", response = UserDto.class)
     @GetMapping
     public ResponseEntity<UserDto> getUsers() throws JsonProcessingException {
         UserDto user = new UserDto()

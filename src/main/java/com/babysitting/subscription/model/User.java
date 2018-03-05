@@ -1,11 +1,10 @@
 package com.babysitting.subscription.model;
 
-import com.google.common.base.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 public class User {
@@ -127,21 +126,21 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equal(id, user.id) &&
-                Objects.equal(firstName, user.firstName) &&
-                Objects.equal(lastName, user.lastName) &&
-                Objects.equal(address, user.address) &&
-                Objects.equal(zipCode, user.zipCode) &&
-                Objects.equal(city, user.city) &&
-                Objects.equal(email, user.email) &&
-                Objects.equal(country, user.country) &&
-                Objects.equal(password, user.password) &&
-                Objects.equal(phoneNumber, user.phoneNumber);
+        return Objects.equals(id, user.id) &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(address, user.address) &&
+                Objects.equals(zipCode, user.zipCode) &&
+                Objects.equals(city, user.city) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(country, user.country) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(phoneNumber, user.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id, firstName, lastName, address, zipCode, city, email, country, password, phoneNumber);
+        return Objects.hash(id, firstName, lastName, address, zipCode, city, email, country, password, phoneNumber);
     }
 
     @Override
