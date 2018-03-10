@@ -1,11 +1,14 @@
 package com.babysitting.subscription;
 
+import com.babysitting.subscription.core.HashCalculator;
 import com.babysitting.subscription.model.User;
 import com.babysitting.subscription.model.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import static com.babysitting.subscription.core.HashCalculator.hash256;
 
 @SpringBootApplication
 public class SubscriptionApplication {
@@ -25,7 +28,7 @@ public class SubscriptionApplication {
                     .setAddress("Rue du Louvre")
                     .setCity("Paris")
                     .setEmail("alice.scott@arolla.fr")
-                    .setPassword("*****")
+                    .setPassword(hash256("bob2018"))
                     .setPhoneNumber("06 00 00 00 00")
                     .setCountry("France")
             );
