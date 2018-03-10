@@ -6,6 +6,7 @@ import com.babysitting.subscription.model.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,5 +50,21 @@ public class UserServiceImpl implements UserService {
                 .stream()
                 .map(userMapper::mapEntityToDto)
                 .collect(toList());
+    }
+
+    @Override
+    public void init() throws NoSuchAlgorithmException {
+        UserDto userDto = new UserDto()
+                .setId(1L)
+                .setFirstName("Alice")
+                .setLastName("Scott")
+                .setAddress("address")
+                .setZipCode("73000")
+                .setCity("London")
+                .setCountry("England")
+                .setEmail("alice.scott@babysitting-somabrouki.com")
+                .setPassword(HashCalculator.hash256("33@Z>/FrjX:(d+GD"))
+                .setPhoneNumber("010000000");
+        add(userDto);
     }
 }

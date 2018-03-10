@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/users")
 public class SubscribingController {
@@ -32,12 +35,9 @@ public class SubscribingController {
      }
  */
     @GetMapping
-    public ResponseEntity<UserDto> getUsers() throws JsonProcessingException {
-        UserDto user = new UserDto()
-                .setId(1L)
-                .setFirstName("Alice")
-                .setLastName("Scott");
-        UserDto result = userService.add(user);
+    public ResponseEntity<List<UserDto>> getUsers() throws JsonProcessingException, NoSuchAlgorithmException {
+        userService.init();
+        List<UserDto> result = userService.getUsers();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
